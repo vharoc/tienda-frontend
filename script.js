@@ -6,11 +6,9 @@ const stripe = Stripe("pk_test_51Rxki3F4sLnHnW2UxcPbPhzqclb78TBarGXHzHPkIiBm8SyN
 checkoutButton.addEventListener("click", async () => {
   try {
     // Llamamos al backend para crear la sesión
-    const response = await fetch("http://localhost:4242/create-checkout-session", {
+    const response = await fetch("https://mi-tienda-backend-5cfq.onrender.com/create-checkout-session", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      }
+      headers: { "Content-Type": "application/json" }
     });
 
     const session = await response.json();
