@@ -1,17 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stripe Checkout</title>
+  <title>Producto Premium | Tienda</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
-  <div>
-    <button id="checkout-button">COMPRAR</button>
+
+  <!-- Botón menú -->
+  <button class="menu-button" onclick="toggleSidebar()">☰</button>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="#" onclick="goHome()">🏠 Inicio</a>
+    <a href="#" onclick="contactUs()">📞 Contacto</a>
+    <a href="#" onclick="trackOrder()">📦 Seguimiento</a>
   </div>
 
-  <script src="https://js.stripe.com/v3/"></script>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <span class="nav-title">Producto Premium</span>
+    <button class="nav-buy-button" id="checkout-button">COMPRAR</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="product-image animate">Tu Producto</div>
+    <h1 class="product-title animate delay-1">PRODUCTO PREMIUM</h1>
+    <div class="product-price animate delay-2">€199.99</div>
+    <button class="buy-button animate delay-3" id="checkout-button-hero">COMPRAR AHORA</button>
+  </section>
+
+  <!-- Detalles -->
+  <section class="details">
+    <div class="details-content">
+      <div>
+        <h2>PRODUCTO PREMIUM</h2>
+        <p>Diseñado con los más altos estándares de calidad y funcionalidad.</p>
+        <ul class="features">
+          <li>✔ Calidad premium</li>
+          <li>✔ Diseño minimalista</li>
+          <li>✔ Materiales de primera</li>
+          <li>✔ Garantía 2 años</li>
+          <li>✔ Envío 24-48h</li>
+        </ul>
+      </div>
+      <div class="details-image">Imagen Detallada</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Tu Tienda Premium - Comprometidos con la excelencia</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
