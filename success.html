@@ -5,67 +5,290 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compra Exitosa</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .success-box {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="15" cy="90" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+      animation: float 20s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    .success-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 50px 40px;
+      border-radius: 24px;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 0 40px rgba(255, 255, 255, 0.1) inset;
       text-align: center;
-      max-width: 400px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      transform: scale(0.8);
+      animation: slideInScale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
-    .success-box h1 {
-      font-size: 2rem;
-      color: #28a745;
+    @keyframes slideInScale {
+      0% {
+        transform: scale(0.8) translateY(60px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #28a745, #20c997);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 20px rgba(40, 167, 69, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+      }
+    }
+
+    .checkmark {
+      width: 50px;
+      height: 50px;
+      stroke: white;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawCheck 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes drawCheck {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .success-container h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #28a745, #20c997);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
 
-    .success-box p {
-      font-size: 1rem;
-      margin-bottom: 30px;
-      color: #333;
+    .success-container p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #6c757d;
+      margin-bottom: 40px;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .success-box button {
-      background: #28a745;
-      color: #fff;
+    .action-button {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
       border: none;
-      padding: 12px 25px;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+      position: relative;
+      overflow: hidden;
     }
 
-    .success-box button:hover {
-      background: #218838;
+    .action-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .action-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
+    }
+
+    .action-button:hover::before {
+      left: 100%;
+    }
+
+    .action-button:active {
+      transform: translateY(-1px);
+    }
+
+    /* Decorative elements */
+    .success-container::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(32, 201, 151, 0.1));
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .success-container::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(40, 167, 69, 0.1));
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    /* Responsive design */
+    @media (max-width: 480px) {
+      .success-container {
+        padding: 40px 30px;
+        margin: 20px;
+      }
+      
+      .success-container h1 {
+        font-size: 2rem;
+      }
+      
+      .success-container p {
+        font-size: 1rem;
+      }
+      
+      .action-button {
+        padding: 14px 35px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="success-box">
-    <h1>✅ Compra realizada</h1>
-    <p>Se ha realizado correctamente la compra. Recibirás un correo cuando el pedido se tramite con el número de seguimiento.</p>
-    <button id="goHomeBtn">Aceptar</button>
+  <div class="success-container">
+    <div class="success-icon">
+      <svg class="checkmark" viewBox="0 0 50 50">
+        <path d="M10 25 L20 35 L40 15"></path>
+      </svg>
+    </div>
+    
+    <h1>¡Compra Exitosa!</h1>
+    
+    <p>Tu pedido ha sido procesado correctamente. Recibirás un correo electrónico con los detalles y el número de seguimiento en breve.</p>
+    
+    <button class="action-button" id="goHomeBtn">
+      Continuar Comprando
+    </button>
   </div>
 
   <script>
     document.getElementById("goHomeBtn").addEventListener("click", () => {
-      window.location.href = "index.html"; // redirige a la pantalla principal
+      // Añadir efecto de clic antes de redirigir
+      const button = document.getElementById("goHomeBtn");
+      button.style.transform = "scale(0.95)";
+      
+      setTimeout(() => {
+        window.location.href = "https://powerhub.page";
+    }, 150);
     });
-  </script>
 
+    // Añadir partículas de celebración
+    function createConfetti() {
+      const colors = ['#28a745', '#20c997', '#ffc107', '#ff6b6b'];
+      
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.style.cssText = `
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            border-radius: 50%;
+            left: ${Math.random() * 100}vw;
+            animation: confettiFall ${Math.random() * 3 + 2}s linear forwards;
+            pointer-events: none;
+            z-index: 1000;
+          `;
+          
+          document.body.appendChild(confetti);
+          
+          setTimeout(() => {
+            confetti.remove();
+          }, 5000);
+        }, i * 100);
+      }
+    }
+
+    // Añadir keyframes para confetti dinámicamente
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes confettiFall {
+        to {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Ejecutar confetti después de que la página cargue
+    setTimeout(createConfetti, 500);
+  </script>
 </body>
 </html>
