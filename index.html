@@ -5,69 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Producto Premium | Tienda</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Stripe JS -->
   <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
-  <!-- Botón menú -->
+  <!-- =======================
+       BOTÓN MENÚ LATERAL
+       ======================= -->
   <button class="menu-button" onclick="toggleSidebar()">☰</button>
 
-  <!-- Overlay -->
+  <!-- Overlay para cerrar sidebar al hacer clic fuera -->
   <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-  <!-- Sidebar -->
+  <!-- =======================
+       SIDEBAR
+       ======================= -->
   <div class="sidebar" id="sidebar">
     <a href="#" onclick="goHome()">🏠 Inicio</a>
     <a href="#" onclick="contactUs()">📞 Contacto</a>
     <a href="#" onclick="trackOrder()">📦 Seguimiento</a>
   </div>
 
-  <!-- Navbar -->
+  <!-- =======================
+       NAVBAR
+       ======================= -->
   <nav class="navbar" id="navbar">
     <span class="nav-title">Producto Premium</span>
     <button class="nav-buy-button" onclick="showPurchaseForm()">COMPRAR</button>
   </nav>
 
-  <!-- Formulario de compra -->
+  <!-- =======================
+       FORMULARIO DE COMPRA
+       ======================= -->
   <div class="purchase-form-overlay" id="purchaseFormOverlay">
     <div class="purchase-form">
+      <!-- Botón cerrar -->
       <button class="close-button" onclick="hidePurchaseForm()">&times;</button>
+
+      <!-- Cabecera del formulario -->
       <div class="form-header">
         <h2 class="form-title">Finalizar Compra</h2>
         <p class="form-subtitle">Completa tus datos para recibir tu producto premium</p>
       </div>
+
+      <!-- Formulario -->
       <form id="checkoutForm">
+        <!-- Nombre -->
         <div class="form-group">
           <label class="form-label" for="nombre">Nombre</label>
           <input type="text" id="nombre" name="nombre" class="form-input" required>
         </div>
+
+        <!-- Teléfono -->
         <div class="form-group">
           <label class="form-label" for="telefono">Teléfono</label>
           <input type="tel" id="telefono" name="telefono" class="form-input">
         </div>
+
+        <!-- Dirección -->
         <div class="form-group">
           <label class="form-label" for="direccion">Calle, número de casa, número del piso</label>
           <input type="text" id="direccion" name="direccion" class="form-input" required>
         </div>
+
+        <!-- Provincia -->
         <div class="form-group">
           <label class="form-label" for="provincia">Provincia</label>
           <input type="text" id="provincia" name="provincia" class="form-input" required>
         </div>
+
+        <!-- Ciudad -->
         <div class="form-group">
           <label class="form-label" for="ciudad">Ciudad</label>
           <input type="text" id="ciudad" name="ciudad" class="form-input" required>
         </div>
+
+        <!-- Código Postal -->
         <div class="form-group">
           <label class="form-label" for="codigoPostal">Código Postal</label>
           <input type="text" id="codigoPostal" name="codigoPostal" class="form-input" required>
         </div>
 
-        <!-- Selector de cantidad -->
+        <!-- Cantidad -->
         <div class="form-group">
           <label class="form-label" for="cantidad">Cantidad</label>
           <input type="number" id="cantidad" name="cantidad" class="form-input" value="1" min="1" required>
         </div>
 
+        <!-- Botones -->
         <div class="form-buttons">
           <button type="button" class="form-button form-button-secondary" onclick="hidePurchaseForm()">Cancelar</button>
           <button type="submit" class="form-button form-button-primary">Confirmar Pedido</button>
@@ -76,7 +103,9 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- =======================
+       HERO / SECCIÓN PRINCIPAL
+       ======================= -->
   <section class="hero">
     <div class="product-image animate">Tu Producto</div>
     <h1 class="product-title animate delay-1">PRODUCTO PREMIUM</h1>
@@ -84,7 +113,9 @@
     <button class="buy-button animate delay-3" onclick="showPurchaseForm()">COMPRAR AHORA</button>
   </section>
 
-  <!-- Detalles -->
+  <!-- =======================
+       DETALLES DEL PRODUCTO
+       ======================= -->
   <section class="details">
     <div class="details-content">
       <div>
@@ -102,11 +133,14 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- =======================
+       FOOTER
+       ======================= -->
   <footer class="footer">
     <p>Tu Tienda Premium - Comprometidos con la excelencia</p>
   </footer>
 
+  <!-- Script principal -->
   <script src="script.js"></script>
 </body>
 </html>
