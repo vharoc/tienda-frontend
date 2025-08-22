@@ -77,14 +77,16 @@ checkoutForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(datos) // mandamos también los datos de envío
     });
 
+    console.log("Fetch OK", response);
+  
     const session = await response.json();
+    console.log("Session recibida", session);
 
-    // Redirigimos a Stripe Checkout
     const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-    if (result.error) {
-      alert(result.error.message);
-    }
+    console.log("Stripe redirigió", result);
+    
+    if (result.error) alert(result.error.message);
+    
   } catch (err) {
     console.error("Error en la compra:", err);
     alert("Hubo un problema al procesar tu pedido. Intenta de nuevo.");
