@@ -9,6 +9,7 @@
   <!-- Stripe JS -->
   <script src="https://js.stripe.com/v3/"></script>
 </head>
+
 <body>
 
   <!-- =======================
@@ -24,15 +25,14 @@
        ======================= -->
   <div class="sidebar" id="sidebar">
     <a href="#" onclick="goHome()">🏠 Inicio</a>
-    <a href="#" onclick="contactUs()">📞 Contacto</a>
-    <a href="#" onclick="trackOrder()">📦 Seguimiento</a>
+    <a href="https://powerhub.page/contacto.html">📞 Contacto</a>
   </div>
 
   <!-- =======================
        NAVBAR
        ======================= -->
   <nav class="navbar" id="navbar">
-    <span class="nav-title">Producto Premium</span>
+    <span class="nav-title">POWERHUB</span>
     <button class="nav-buy-button" onclick="showPurchaseForm()">COMPRAR</button>
   </nav>
 
@@ -47,7 +47,8 @@
       <!-- Cabecera del formulario -->
       <div class="form-header">
         <h2 class="form-title">Finalizar Compra</h2>
-        <p class="form-subtitle">Completa tus datos para recibir tu producto premium</p>
+        <p class="form-subtitle">Completa tus datos para recibir tu enchufe inteligente</p>
+        <p style="color: red">Si prefieres recibirlo en un punto de recogida contactanos por Instagram: @...</p>
       </div>
 
       <!-- Formulario -->
@@ -111,29 +112,55 @@
        HERO / SECCIÓN PRINCIPAL
        ======================= -->
   <section class="hero">
-    <div class="product-image animate">Tu Producto</div>
-    <h1 class="product-title animate delay-1">PRODUCTO PREMIUM</h1>
-    <div class="product-price animate delay-2">€199.99</div>
+    <div class="product-image animate">
+      <img src="images/Imagen de WhatsApp 2025-09-14 a las 16.38.30_b720aa38-Photoroom.png" alt="Producto Premium" />
+    </div>
+    <h1 class="product-title animate delay-1">ENCHUFE INTELIGENTE</h1>
+    <div class="product-price animate delay-2">€9.99</div>
     <button class="buy-button animate delay-3" onclick="showPurchaseForm()">COMPRAR AHORA</button>
   </section>
 
   <!-- =======================
        DETALLES DEL PRODUCTO
        ======================= -->
+  <!-- Primera sección: TEXTO - IMAGEN -->
   <section class="details">
-    <div class="details-content">
+    <div class="details-content animate">
       <div>
-        <h2>PRODUCTO PREMIUM</h2>
-        <p>Diseñado con los más altos estándares de calidad y funcionalidad.</p>
+        <h2>CALIDAD GARANTIZADA</h2>
+        <p>Fabricado con materiales resistentes y un diseño minimalista, este enchufe temporizador se adapta perfectamente a cualquier hogar moderno. Disfruta de un uso seguro y confiable.</p>
         <ul class="features">
-          <li>✔ Calidad premium</li>
-          <li>✔ Diseño minimalista</li>
-          <li>✔ Materiales de primera</li>
-          <li>✔ Garantía 2 años</li>
-          <li>✔ Envío 24-48h</li>
+          <li>✔ Certificación CE para mayor seguridad</li>
+          <li>✔ Protección contra sobrecarga eléctrica</li>
+          <li>✔ Diseño compacto y discreto</li>
+          <li>✔ Instalación sencilla: solo conéctalo y úsalo</li>
+          <li>✔ Atención y soporte técnico 24/7</li>
         </ul>
       </div>
-      <div class="details-image">Imagen Detallada</div>
+      
+      
+      <div class="details-image">
+        <img src="images/image.png" alt="Características Premium" />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Segunda sección: IMAGEN - TEXTO -->
+  <section class="details">
+    <div class="details-content reverse animate">
+      <div>
+        <h2>CALIDAD GARANTIZADA</h2>
+        <p>Fabricado con materiales de primera calidad y diseño minimalista que se adapta a cualquier hogar moderno.</p>
+        <ul class="features">
+          <li>✔ Certificación CE y FCC</li>
+          <li>✔ Protección contra sobrecarga</li>
+          <li>✔ Diseño compacto y elegante</li>
+          <li>✔ Instalación sin cables</li>
+        </ul>
+      </div>
+      <div class="details-image">
+        <img src="images/imagen de lado.png" alt="Calidad Premium" />
+      </div>
     </div>
   </section>
 
@@ -141,7 +168,7 @@
        FOOTER
        ======================= -->
   <footer class="footer">
-    <p>Tu Tienda Premium - Comprometidos con la excelencia</p>
+    <p>Comprometidos con tu experiencia</p>
   </footer>
 
   <!-- Script principal -->
